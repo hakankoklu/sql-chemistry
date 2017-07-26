@@ -47,12 +47,12 @@ for ind, _ in enumerate(data['books']):
     writer_sessions = utils.get_writer_sessions(len(seshes), writers)
     values = []
     for sesh, writer in zip(seshes, writer_sessions):
-        values.append({'book_id': ind + 1, 'person_id': writer, 'start': sesh[0], 'end': sesh[1],
-                       'finished': False})
+        values.append({'book_id': ind + 1, 'person_id': writer, 'start_time': sesh[0],
+                       'end_time': sesh[1], 'finished': False})
     values[-1]['finished'] = utils.get_finished(90)
     conn.execute(ins, values)
 
-s = select([Write.c.book_id, func.min(Write.c.end)]).group_by(Write.c.book_id)
+s = select([Write.c.book_id, func.min(Write.c.end_time)]).group_by(Write.c.book_id)
 books_available = conn.execute(s).fetchall()
 # print(sorted(books_available, key=lambda x: x[0]))
 
@@ -67,7 +67,7 @@ for b_id, finish_time in books_available:
         seshes = utils.get_sessions(reading_start, reading_end, [10, 50], 0.1)
         values = []
         for sesh  in seshes:
-            values.append({'book_id': b_id, 'person_id': reader, 'start': sesh[0], 'end': sesh[1],
-                           'finished': False})
+            values.append({'book_id': b_id, 'person_id': reader, 'start_time': sesh[0],
+                           'end_time': sesh[1], 'finished': False})
         values[-1]['finished'] = utils.get_finished(95)
         conn.execute(ins, values)

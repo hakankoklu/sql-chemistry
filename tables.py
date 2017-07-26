@@ -19,8 +19,8 @@ write = Table('write', metadata,
               Column('event_id', Integer, primary_key=True, autoincrement=True),
               Column('book_id', Integer, ForeignKey('literator.book.book_id'), nullable=False),
               Column('person_id', Integer, ForeignKey('literator.person.person_id')),
-              Column('start', DateTime, nullable=False),
-              Column('end', DateTime, nullable=False),
+              Column('start_time', DateTime, nullable=False),
+              Column('end_time', DateTime, nullable=False),
               Column('finished', Boolean, nullable=False),
               schema='literator')
 
@@ -28,8 +28,8 @@ read = Table('read', metadata,
              Column('event_id', Integer, primary_key=True, autoincrement=True),
              Column('book_id', Integer, ForeignKey('literator.book.book_id'), nullable=False),
              Column('person_id', Integer, ForeignKey('literator.person.person_id')),
-             Column('start', DateTime, nullable=False),
-             Column('end', DateTime, nullable=False),
+             Column('start_time', DateTime, nullable=False),
+             Column('end_time', DateTime, nullable=False),
              Column('finished', Boolean, nullable=False),
              schema='literator')
 
