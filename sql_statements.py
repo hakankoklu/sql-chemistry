@@ -47,12 +47,24 @@ def get_youngest_persons_name():
 
 def get_youngest_persons_name2():
     sql = """
-        with ordered_age as
-        (select name
-            , row_number() over (order by date_of_birth asc) as row_no
-        from literator.person)
-        select name
-        from ordered_age
-        where row_no = 1
-        """
+    with ordered_age as
+    (select name
+        , row_number() over (order by date_of_birth asc) as row_no
+    from literator.person)
+    select name
+    from ordered_age
+    where row_no = 1
+    """
+    return utils.run_query(sql, engine)
+
+
+def get_writer_count_per_book_title():
+    sql = """
+    select title, count(distinct person_id) as writer_count
+    from literator.book bb
+    left join literator.write ww
+    on bb.book_id = ww.book_id
+    group by title
+    order by writer_count desc, title
+    """
     return utils.run_query(sql, engine)

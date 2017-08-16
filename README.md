@@ -28,8 +28,8 @@ They also read the books individually. They had e-books (they learned from the f
 ## Sample queries
 
 All persons in the town
-Writer count per book in descending order of count
 Oldest/youngest person and their DOB
+Writer count per book in descending order of count
 Total number of write sessions
 longest reading session length
 longest writing session
