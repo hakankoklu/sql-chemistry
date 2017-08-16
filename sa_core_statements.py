@@ -53,3 +53,8 @@ def get_writer_count_per_book_title():
         .order_by(desc('writer_count'), tables.Book.c.title.asc())
         # .order_by(func.count(tables.Write.c.person_id.distinct()).desc(), tables.Book.c.title.asc()) also works
     return utils.run_query(stmt, engine)
+
+
+def get_longest_reading_session_length():
+    stmt = select([func.max(tables.Write.c.end_time - tables.Write.c.start_time)])
+    return utils.run_query(stmt, engine)

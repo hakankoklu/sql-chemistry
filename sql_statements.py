@@ -68,3 +68,11 @@ def get_writer_count_per_book_title():
     order by writer_count desc, title
     """
     return utils.run_query(sql, engine)
+
+
+def get_longest_reading_session_length():
+    sql = """
+    select max(end_time - start_time)
+    from literator.write
+    """
+    return utils.run_query(sql, engine)

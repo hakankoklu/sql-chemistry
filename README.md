@@ -30,6 +30,7 @@ They also read the books individually. They had e-books (they learned from the f
 All persons in the town
 Oldest/youngest person and their DOB
 Writer count per book in descending order of count
-Total number of write sessions
 longest reading session length
 longest writing session
+finished status of all books
+persons and the number of books they finished and did not finish
