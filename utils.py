@@ -62,3 +62,9 @@ def get_people_in_range(rrange):
 
 def get_writer_sessions(session_count, writers):
     return [choice(writers) for _ in range(session_count)]
+
+
+def run_query(stmt, engine):
+    with engine.begin() as conn:
+        result = conn.execute(stmt)
+    return result.fetchall()

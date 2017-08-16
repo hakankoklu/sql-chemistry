@@ -24,3 +24,12 @@ stories from getting confusing. They have finished writing most books but some m
 They also read the books individually. They had e-books (they learned from the fire) so more than
  one person could read the books at the same time. Most of them finished their books but some of
  them did not finish some books.
+
+## Sample queries
+
+All persons in the town
+Writer count per book in descending order of count
+Oldest/youngest person and their DOB
+Total number of write sessions
+longest reading session length
+longest writing session
